@@ -6,30 +6,21 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE312C252D20750B0098CD8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE312C202D20750B0098CD8C /* Assets.xcassets */; };
+		CE312C272D20750B0098CD8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE312C1F2D20750B0098CD8C /* AppDelegate.swift */; };
+		CE312C282D20750B0098CD8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE312C222D20750B0098CD8C /* SceneDelegate.swift */; };
+		CE312C292D20750B0098CD8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE312C232D20750B0098CD8C /* ViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CE312C072D20434B0098CD8C /* Cyclic Apps (TeachMeSkillsHW).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cyclic Apps (TeachMeSkillsHW).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE312C1F2D20750B0098CD8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE312C202D20750B0098CD8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE312C212D20750B0098CD8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE312C222D20750B0098CD8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CE312C232D20750B0098CD8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CE312C192D20434E0098CD8C /* Exceptions for "Cyclic Apps (TeachMeSkillsHW)" folder in "Cyclic Apps (TeachMeSkillsHW)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = CE312C062D20434B0098CD8C /* Cyclic Apps (TeachMeSkillsHW) */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		CE312C092D20434B0098CD8C /* Cyclic Apps (TeachMeSkillsHW) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				CE312C192D20434E0098CD8C /* Exceptions for "Cyclic Apps (TeachMeSkillsHW)" folder in "Cyclic Apps (TeachMeSkillsHW)" target */,
-			);
-			path = "Cyclic Apps (TeachMeSkillsHW)";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CE312C042D20434B0098CD8C /* Frameworks */ = {
@@ -45,7 +36,7 @@
 		CE312BFE2D20434A0098CD8C = {
 			isa = PBXGroup;
 			children = (
-				CE312C092D20434B0098CD8C /* Cyclic Apps (TeachMeSkillsHW) */,
+				CE312C242D20750B0098CD8C /* Cyclic Apps (TeachMeSkillsHW) */,
 				CE312C082D20434B0098CD8C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +47,34 @@
 				CE312C072D20434B0098CD8C /* Cyclic Apps (TeachMeSkillsHW).app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CE312C242D20750B0098CD8C /* Cyclic Apps (TeachMeSkillsHW) */ = {
+			isa = PBXGroup;
+			children = (
+				CE312C2A2D2075170098CD8C /* App */,
+				CE312C2B2D2075220098CD8C /* ViewControllers */,
+				CE312C202D20750B0098CD8C /* Assets.xcassets */,
+			);
+			path = "Cyclic Apps (TeachMeSkillsHW)";
+			sourceTree = "<group>";
+		};
+		CE312C2A2D2075170098CD8C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CE312C1F2D20750B0098CD8C /* AppDelegate.swift */,
+				CE312C222D20750B0098CD8C /* SceneDelegate.swift */,
+				CE312C212D20750B0098CD8C /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CE312C2B2D2075220098CD8C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE312C232D20750B0098CD8C /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,9 +91,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				CE312C092D20434B0098CD8C /* Cyclic Apps (TeachMeSkillsHW) */,
 			);
 			name = "Cyclic Apps (TeachMeSkillsHW)";
 			packageProductDependencies = (
@@ -122,6 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE312C252D20750B0098CD8C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE312C272D20750B0098CD8C /* AppDelegate.swift in Sources */,
+				CE312C282D20750B0098CD8C /* SceneDelegate.swift in Sources */,
+				CE312C292D20750B0098CD8C /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,12 +167,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 24Q9WM75S6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Cyclic Apps (TeachMeSkillsHW)/Info.plist";
+				INFOPLIST_FILE = "Cyclic Apps (TeachMeSkillsHW)/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -160,9 +180,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "halushko.Cyclic-Apps--TeachMeSkillsHW-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -175,12 +199,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 24Q9WM75S6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Cyclic Apps (TeachMeSkillsHW)/Info.plist";
+				INFOPLIST_FILE = "Cyclic Apps (TeachMeSkillsHW)/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -188,9 +212,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "halushko.Cyclic-Apps--TeachMeSkillsHW-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
