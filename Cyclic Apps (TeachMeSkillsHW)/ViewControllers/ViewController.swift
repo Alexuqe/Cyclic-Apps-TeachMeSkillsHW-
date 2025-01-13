@@ -13,24 +13,32 @@ enum StateAnimation {
     case right
     case up
     case left
+    case stop
 }
 
 final class ViewController: UIViewController {
 
-        //MARK: Outlets
+        //MARK: Private Outlets
     private let safeView = UIView()
     private let cyrcleView = UIView()
-
     private let buttonStackView = UIStackView()
 
-    private lazy var startButton = addButton(title: "Start", color: UIColor.systemGreen, size: CGSize(width: sizeButton, height: sizeButton / 2))
-    private lazy var stopButton = addButton(title: "Stop", color: UIColor.red, size: CGSize(width: sizeButton, height: sizeButton / 2))
+    private lazy var startButton = addButton(
+        title: "Start",
+        color: UIColor.systemGreen,
+        size: CGSize(width: sizeButton, height: sizeButton / 2)
+    )
+    private lazy var stopButton = addButton(
+        title: "Stop",
+        color: UIColor.red,
+        size: CGSize(width: sizeButton, height: sizeButton / 2)
+    )
 
         //MARK: Private Properties
     private let leadingConstraints: CGFloat = 50
     private let trailingConstraints: CGFloat = -50
     private let sizeCyrcle: CGFloat = 60
-    private lazy var sizeButton: CGFloat = 120
+    private let sizeButton: CGFloat = 120
     private var stateAnimate = false
 
         //MARK: Overrides Methods
@@ -63,7 +71,6 @@ private extension ViewController {
         sizeButton(stopButton)
 
         configureButtonStackView()
-
         actionButtons()
     }
 
@@ -202,8 +209,13 @@ private extension ViewController {
     @objc func startCycle() {
         guard !stateAnimate else { return }
         stateAnimate = true
-
         animating(state: .down)
+    }
+
+    @objc func stopCycle() {
+        guard stateAnimate else { return }
+        animating(state: .stop)
+        stateAnimate = false
     }
 
     func animating(state: StateAnimation) {
@@ -237,19 +249,15 @@ private extension ViewController {
                 } completion: { [weak self] _ in
                     self?.animating(state: .down)
                 }
+            case .stop:
+                 UIView.animate(withDuration: 1) { [weak self] in
+                    guard let self else { return }
+                    self.cyrcleView.transform = .identity
+                }
         }
     }
 
-    @objc func stopCycle() {
-        guard !stateAnimate else {
-            stateAnimate = false
-            UIView.animate(withDuration: 1) { [weak self] in
-                guard let self else { return }
-                self.cyrcleView.transform = .identity
-            }
-            return
-        }
-    }
+
 
 
 
