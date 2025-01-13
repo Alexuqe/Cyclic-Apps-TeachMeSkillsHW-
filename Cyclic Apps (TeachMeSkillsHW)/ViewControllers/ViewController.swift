@@ -7,6 +7,14 @@
 
 import UIKit
 
+
+enum StateAnimation {
+    case down
+    case right
+    case up
+    case left
+}
+
 final class ViewController: UIViewController {
 
         //MARK: Outlets
@@ -155,22 +163,22 @@ private extension ViewController {
         //MARK: UI Helper
     func addButton(title: String, color: UIColor, size: CGSize = CGSize(width: 0 , height: 0)) -> UIButton {
         {
-            var configure = UIButton.Configuration.plain()
-            configure.baseForegroundColor = .white
-            configure.cornerStyle = .capsule
-            configure.contentInsets = NSDirectionalEdgeInsets(
-                top: 10,
-                leading: 10,
-                bottom: 10,
-                trailing: 10
-            )
-            $0.configuration = configure
-            $0.frame.size = size
-            $0.setTitle(title, for: .normal)
-            $0.backgroundColor = color
-            $0.translatesAutoresizingMaskIntoConstraints = false
+        var configure = UIButton.Configuration.plain()
+        configure.baseForegroundColor = .white
+        configure.cornerStyle = .capsule
+        configure.contentInsets = NSDirectionalEdgeInsets(
+            top: 10,
+            leading: 10,
+            bottom: 10,
+            trailing: 10
+        )
+        $0.configuration = configure
+        $0.frame.size = size
+        $0.setTitle(title, for: .normal)
+        $0.backgroundColor = color
+        $0.translatesAutoresizingMaskIntoConstraints = false
 
-            return $0
+        return $0
         }(UIButton())
     }
 
@@ -195,37 +203,51 @@ private extension ViewController {
         guard !stateAnimate else { return }
         stateAnimate = true
 
-        startAnimation()
+        animating(state: .down)
     }
 
-    private func startAnimation() {
+    func animating(state: StateAnimation) {
         guard stateAnimate else { return }
-
-        UIView.animate(withDuration: 1) {
-            self.cyrcleView.transform = CGAffineTransform(translationX: self.safeView.bounds.origin.x, y: self.safeView.bounds.height - self.sizeCyrcle)
-        } completion: { _ in
-            UIView.animate(withDuration: 1) {
-                self.cyrcleView.transform = CGAffineTransform(translationX: self.safeView.bounds.width - self.cyrcleView.frame.height, y: self.safeView.bounds.height - self.sizeCyrcle)
-            } completion: { _ in
-                UIView.animate(withDuration: 1) {
-                    self.cyrcleView.transform = CGAffineTransform(translationX: self.safeView.frame.width - self.sizeCyrcle, y: 0 )
-                } completion: { _ in
-                    UIView.animate(withDuration: 1) {
-                        self.cyrcleView.transform = CGAffineTransform(translationX: 0, y: 0)
-                    } completion: { _ in
-                        guard self.stateAnimate else { return }
-                        self.startAnimation()
-                    }
+        switch state {
+            case .down:
+                UIView.animate(withDuration: 1) { [weak self] in
+                    guard let self else { return }
+                    self.cyrcleView.transform = CGAffineTransform(translationX: self.safeView.bounds.origin.x, y: self.safeView.bounds.height - self.sizeCyrcle)
+                } completion: { [weak self] _ in
+                    self?.animating(state: .right)
                 }
-            }
+            case .right:
+                UIView.animate(withDuration: 1) { [weak self] in
+                    guard let self else { return }
+                    self.cyrcleView.transform = CGAffineTransform(translationX: self.safeView.bounds.width - self.cyrcleView.frame.height, y: self.safeView.bounds.height - self.sizeCyrcle)
+                } completion: { [weak self] _ in
+                    self?.animating(state: .up)
+                }
+            case .up:
+                UIView.animate(withDuration: 1) { [weak self] in
+                    guard let self else { return }
+                    self.cyrcleView.transform = CGAffineTransform(translationX: self.safeView.frame.width - self.sizeCyrcle, y: 0 )
+                } completion: { [weak self] _ in
+                    self?.animating(state: .left)
+                }
+            case .left:
+                UIView.animate(withDuration: 1) { [weak self] in
+                    guard let self else { return }
+                    self.cyrcleView.transform = CGAffineTransform(translationX: 0, y: 0)
+                } completion: { [weak self] _ in
+                    self?.animating(state: .down)
+                }
         }
     }
 
     @objc func stopCycle() {
-        stateAnimate = false
-        UIView.animate(withDuration: 1) {
-            self.cyrcleView.transform = .identity
-
+        guard !stateAnimate else {
+            stateAnimate = false
+            UIView.animate(withDuration: 1) { [weak self] in
+                guard let self else { return }
+                self.cyrcleView.transform = .identity
+            }
+            return
         }
     }
 
@@ -233,11 +255,4 @@ private extension ViewController {
 
 
 }
-
-
-#Preview {
-    let view = ViewController()
-    view
-}
-
 
